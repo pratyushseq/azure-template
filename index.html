@@ -4,25 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sequoia Login</title>
-    <style>
-    body {
-      font-family: Helvetica, Arial, sans-serif;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      height: 100vh;
-    }
-    #api {
-      min-height: 600px;
-      width: 400px;
-      background: #eee;
-      border-radius: 4px;
-      border: 1px solid #ddd;
-    }
-  </style>
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <h1>Sequoia Login</h1>
-    <div id="api"></div>
+
+    <div class="page-wrapper">
+
+      <div class="image-wrapper">
+        <img src="/assets/home-bg.png" alt="home-bg">
+      </div>
+
+      <div class="form-wrapper">
+        <div id="api" data-name="Unified">
+          <div class="claims-provider-list-buttons social"
+            aria-label="Sign in with your social account" role="form">
+            <div class="intro">
+              <h2 aria-level="1">Sign in with your social account</h2>
+            </div>
+            <div class="options">
+              <div>
+                <button
+                  class="accountButton firstButton claims-provider-selection"
+                  id="FacebookExchange" role="link" autofocus>Facebook</button>
+              </div>
+              <div>
+                <button class="accountButton claims-provider-selection"
+                  id="ContosoExchange" role="link">Auth0</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider">
+            <h2>OR</h2>
+          </div>
+          <form id="localAccountForm" action="JavaScript:void(0);"
+            class="localAccount" aria-label="Sign in with your email address">
+            <div class="intro">
+              <h2 aria-level="1">
+                Sign in with your email address
+              </h2>
+            </div>
+            <div class="error pageLevel" aria-hidden="true" role="alert"
+              style="display: none;">
+              <p></p>
+            </div>
+            <div class="entry">
+              <div class="entry-item">
+                <label for="signInName">
+                  Email Address
+                </label>
+                <div class="error itemLevel" aria-hidden="true" role="alert"
+                  style="display: none;">
+                  <p></p>
+                </div>
+                <input type="text" id="signInName" name="Email Address"
+                  title="Please enter a valid Email Address" autofocus
+                  placeholder="Email Address" aria-label="Email Address">
+              </div>
+              <div class="entry-item">
+                <div class="password-label">
+                  <label for="password">Password</label>
+                  <a id="forgotPassword"
+                    href="/canopystaging.onmicrosoft.com/B2C_1A_signup_signin/api/CombinedSigninAndSignup/forgotPassword?csrf_token=U1VhRE5wVXM2VThJeEVPZEpGVTh1ODVGS3JaUzBVd1lyTnM5Y0pTS2J5cU4vUGVYSDNjeEJMR1JUMkJLb1kxazBFQ0JpbWdVaUJud0UxS2pnQUExZlE9PTsyMDI0LTAyLTA1VDA5OjE0OjI2LjIzOTAzNzZaO240TVB3NG45ZzJuWGIxZTBTTyt3SkE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiJkNDY2MGE2Yy1lOWU5LTRiYzUtOGNiNC0yOWMwZTA1YTIzOTcifQ&amp;p=B2C_1A_signup_signin">Forgot
+                    your password?</a>
+                </div>
+                <div class="error itemLevel" aria-hidden="true"
+                  style="display: none;">
+                  <p role="alert"></p>
+                </div>
+                <input type="password" id="password" name="Password"
+                  placeholder="Password" aria-label="Password"
+                  autocomplete="current-password" aria-required="true">
+              </div>
+              <div class="working"></div>
+
+              <div class="buttons">
+                <button id="next" type="submit" form="localAccountForm">Sign
+                  in</button>
+              </div>
+            </div>
+            <div class="divider">
+              <h2>OR</h2>
+            </div>
+            <div class="create">
+              <p>
+                Don't have an account?<a id="createAccount"
+                  href="/canopystaging.onmicrosoft.com/B2C_1A_signup_signin/api/CombinedSigninAndSignup/unified?local=signup&amp;csrf_token=U1VhRE5wVXM2VThJeEVPZEpGVTh1ODVGS3JaUzBVd1lyTnM5Y0pTS2J5cU4vUGVYSDNjeEJMR1JUMkJLb1kxazBFQ0JpbWdVaUJud0UxS2pnQUExZlE9PTsyMDI0LTAyLTA1VDA5OjE0OjI2LjIzOTAzNzZaO240TVB3NG45ZzJuWGIxZTBTTyt3SkE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiJkNDY2MGE2Yy1lOWU5LTRiYzUtOGNiNC0yOWMwZTA1YTIzOTcifQ&amp;p=B2C_1A_signup_signin">Sign
+                  up now</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
   </body>
 </html>
