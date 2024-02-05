@@ -35,10 +35,6 @@ body {
 }
 
 .image-wrapper img {
-  /* position: sticky;
-  top: 0; */
-  /* left: 50%;
-  transform: translate(-50%, -50%); */
   width: 480px;
   height: 480px;
 }
@@ -133,8 +129,7 @@ button[type="submit"],
   position: relative;
 }
 
-.attrEntry>*,
-.entry-item>* {
+.attrEntry>* {
   order: 3;
 }
 
