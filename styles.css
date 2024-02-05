@@ -18,8 +18,9 @@ body {
   width: 100%;
   max-width: 1600px;
   margin: auto;
-  padding: 80px 120px;
+  padding: 80px 120px 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
 }
@@ -232,7 +233,7 @@ ul {
   flex: 1;
 }
 
-.verify > button {
+.verify>button {
   margin-bottom: 16px;
   order: 2;
   flex: 1 1 47%;
@@ -257,4 +258,28 @@ ul {
   margin-bottom: 16px;
   font-size: 14px;
   font-weight: 500;
+}
+
+footer {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 36px;
+  margin-top: 48px;
+}
+
+footer .links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 0.875rem;
+  margin: 12px 0px;
+  width: 50%;
+  justify-content: center;
+}
+
+footer .links a {
+  margin-left: 18px;
+  color: #3d3d3d;
 }
