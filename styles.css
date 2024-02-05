@@ -8,26 +8,37 @@ body {
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     sans-serif;
   background-color: #edeef7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .page-wrapper {
+  width: 100%;
   max-width: 1600px;
   margin: auto;
   padding: 80px 120px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100lvh;
+  align-items: flex-start;
 }
 
 .image-wrapper {
   width: 50%;
+  position: sticky;
+  top: max(20%, 30vh);
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 480px;
 }
 
 .image-wrapper img {
+  /* position: sticky;
+  top: 0; */
+  /* left: 50%;
+  transform: translate(-50%, -50%); */
   width: 480px;
   height: 480px;
 }
@@ -50,7 +61,7 @@ a {
 
 #api {
   min-height: 600px;
-  width: 400px;
+  width: 460px;
   background: #eee;
   border-radius: 4px;
   border: 1px solid #ddd;
@@ -85,7 +96,8 @@ button:disabled {
   opacity: 0.3;
 }
 
-button[type="submit"] {
+button[type="submit"],
+.sendButton {
   background-color: black;
   color: white;
   border: 1px solid black;
@@ -113,18 +125,28 @@ button[type="submit"] {
   margin: 24px 0;
 }
 
+.attrEntry,
 .entry-item {
   display: flex;
   flex-direction: column;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+  position: relative;
 }
 
+.attrEntry>*,
+.entry-item>* {
+  order: 3;
+}
+
+.attrEntry label,
 .entry-item label {
   margin-bottom: 8px;
   font-size: 16px;
   font-weight: 500;
+  order: 0;
 }
 
+.attrEntry input,
 .entry-item input {
   padding: 14px 12px;
   background: white;
@@ -134,6 +156,12 @@ button[type="submit"] {
   line-height: 1.25;
   outline: none;
   box-shadow: none;
+  order: 1;
+}
+
+.attrEntry .buttons {
+  margin: 16px 0;
+  order: 2;
 }
 
 #forgotPassword {
@@ -149,7 +177,65 @@ button[type="submit"] {
 
 .error {
   font-size: 12px;
+  font-weight: 500;
   color: red;
-  margin: 0;
-  line-height: 0;
+  line-height: 1;
+  order: 4;
+  margin: 8px 0;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.helpLink {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0;
+}
+
+.helpLink::after {
+  content: '?';
+  position: absolute;
+  top: 4px;
+  right: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #aaa;
+  border: 1px solid #ccc;
+  height: 16px;
+  width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 16px;
+}
+
+.verificationInfoText {
+  color: blue;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.verificationSuccessText {
+  color: green;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.verificationErrorText {
+  color: red;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
 }

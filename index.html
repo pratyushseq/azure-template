@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sequoia Login</title>
     <link rel="stylesheet" data-replace="href"
-      data-href="__URL__/styles.css">
+      data-href="__URL__/styles.css"
+      href="https://pratyushseq.github.io/azure-template/styles.css">
   </head>
   <body>
 
@@ -14,91 +15,13 @@
       <div class="image-wrapper">
         <img data-replace="src"
           data-src="__URL__/assets/home-bg.png"
+          src="https://pratyushseq.github.io/azure-template/assets/home-bg.png"
           alt="home-bg">
       </div>
 
       <div class="form-wrapper">
         <div id="api" data-name="Unified">
-          <div class="claims-provider-list-buttons social"
-            aria-label="Sign in with your social account" role="form">
-            <div class="intro">
-              <h2 aria-level="1">Sign in with your social account</h2>
-            </div>
-            <div class="options">
-              <div>
-                <button
-                  class="accountButton firstButton claims-provider-selection"
-                  id="FacebookExchange" role="link" autofocus>Facebook</button>
-              </div>
-              <div>
-                <button class="accountButton claims-provider-selection"
-                  id="ContosoExchange" role="link">Auth0</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="divider">
-            <h2>OR</h2>
-          </div>
-          <form id="localAccountForm" action="JavaScript:void(0);"
-            class="localAccount" aria-label="Sign in with your email address">
-            <div class="intro">
-              <h2 aria-level="1">
-                Sign in with your email address
-              </h2>
-            </div>
-            <div class="error pageLevel" aria-hidden="true" role="alert"
-              style="display: none;">
-              <p></p>
-            </div>
-            <div class="entry">
-              <div class="entry-item">
-                <label for="signInName">
-                  Email Address
-                </label>
-                <div class="error itemLevel" aria-hidden="false" role="alert"
-                  style="display: block;">
-                  <p>Please enter your Email Address</p>
-                </div>
-                <input type="text" id="signInName" name="Email Address"
-                  title="Please enter a valid Email Address" autofocus
-                  placeholder="Email Address" aria-label="Email Address"
-                  class="highlightError">
-              </div>
-              <div class="entry-item">
-                <div class="password-label">
-                  <label for="password">Password</label>
-                  <a id="forgotPassword"
-                    href="/canopystaging.onmicrosoft.com/B2C_1A_signup_signin/api/CombinedSigninAndSignup/forgotPassword?csrf_token=ZUxQckFwYndkb1BpNTgydXkxbklBbE52V0xBUkpuR1BtbTM5dEpTNmxxdVVXK2JsTld5WDRRRzlaeC83SG1nSUJFVGM3b29FSWV0NVQybitSYnBFWFE9PTsyMDI0LTAyLTA1VDA5OjU5OjAyLjQzNTc1OTdaO2tWUHJ0SjhteStCeW1FYXA2SXRjNnc9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiJjMDE1OTc5My05ODIxLTQ4ZWQtOGE5MS0zMzI0ZTllZTFkN2QifQ&amp;p=B2C_1A_signup_signin">Forgot
-                    your password?</a>
-                </div>
-                <div class="error itemLevel" aria-hidden="false"
-                  style="display: block;">
-                  <p role="alert">Please enter your password</p>
-                </div>
-                <input type="password" id="password" name="Password"
-                  placeholder="Password" aria-label="Password"
-                  autocomplete="current-password" aria-required="true"
-                  class="highlightError">
-              </div>
-              <div class="working"></div>
-
-              <div class="buttons">
-                <button id="next" type="submit" form="localAccountForm">Sign
-                  in</button>
-              </div>
-            </div>
-            <div class="divider">
-              <h2>OR</h2>
-            </div>
-            <div class="create">
-              <p>
-                Don't have an account?<a id="createAccount"
-                  href="/canopystaging.onmicrosoft.com/B2C_1A_signup_signin/api/CombinedSigninAndSignup/unified?local=signup&amp;csrf_token=ZUxQckFwYndkb1BpNTgydXkxbklBbE52V0xBUkpuR1BtbTM5dEpTNmxxdVVXK2JsTld5WDRRRzlaeC83SG1nSUJFVGM3b29FSWV0NVQybitSYnBFWFE9PTsyMDI0LTAyLTA1VDA5OjU5OjAyLjQzNTc1OTdaO2tWUHJ0SjhteStCeW1FYXA2SXRjNnc9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiJjMDE1OTc5My05ODIxLTQ4ZWQtOGE5MS0zMzI0ZTllZTFkN2QifQ&amp;p=B2C_1A_signup_signin">Sign
-                  up now</a>
-              </p>
-            </div>
-          </form>
+          
         </div>
       </div>
 
