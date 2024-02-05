@@ -235,7 +235,7 @@ ul {
 .verify > button {
   margin-bottom: 16px;
   order: 2;
-  flex: 0 1 47%;
+  flex: 1 1 47%;
 }
 
 .verificationInfoText {
