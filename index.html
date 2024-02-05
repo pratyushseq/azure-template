@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sequoia Login</title>
-    <link rel="stylesheet" href="https://pratyushseq.github.io/azure-template/styles.css">
+    <link rel="stylesheet" data-replace="href"
+      data-href="__URL__/styles.css">
   </head>
   <body>
 
     <div class="page-wrapper">
 
       <div class="image-wrapper">
-        <img src="https://pratyushseq.github.io/azure-template/assets/home-bg.png" alt="home-bg">
+        <img data-replace="src"
+          data-src="__URL__/assets/home-bg.png"
+          alt="home-bg">
       </div>
 
       <div class="form-wrapper">
@@ -53,28 +56,30 @@
                 <label for="signInName">
                   Email Address
                 </label>
-                <div class="error itemLevel" aria-hidden="true" role="alert"
-                  style="display: none;">
-                  <p></p>
+                <div class="error itemLevel" aria-hidden="false" role="alert"
+                  style="display: block;">
+                  <p>Please enter your Email Address</p>
                 </div>
                 <input type="text" id="signInName" name="Email Address"
                   title="Please enter a valid Email Address" autofocus
-                  placeholder="Email Address" aria-label="Email Address">
+                  placeholder="Email Address" aria-label="Email Address"
+                  class="highlightError">
               </div>
               <div class="entry-item">
                 <div class="password-label">
                   <label for="password">Password</label>
                   <a id="forgotPassword"
-                    href="/canopystaging.onmicrosoft.com/B2C_1A_signup_signin/api/CombinedSigninAndSignup/forgotPassword?csrf_token=U1VhRE5wVXM2VThJeEVPZEpGVTh1ODVGS3JaUzBVd1lyTnM5Y0pTS2J5cU4vUGVYSDNjeEJMR1JUMkJLb1kxazBFQ0JpbWdVaUJud0UxS2pnQUExZlE9PTsyMDI0LTAyLTA1VDA5OjE0OjI2LjIzOTAzNzZaO240TVB3NG45ZzJuWGIxZTBTTyt3SkE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiJkNDY2MGE2Yy1lOWU5LTRiYzUtOGNiNC0yOWMwZTA1YTIzOTcifQ&amp;p=B2C_1A_signup_signin">Forgot
+                    href="/canopystaging.onmicrosoft.com/B2C_1A_signup_signin/api/CombinedSigninAndSignup/forgotPassword?csrf_token=ZUxQckFwYndkb1BpNTgydXkxbklBbE52V0xBUkpuR1BtbTM5dEpTNmxxdVVXK2JsTld5WDRRRzlaeC83SG1nSUJFVGM3b29FSWV0NVQybitSYnBFWFE9PTsyMDI0LTAyLTA1VDA5OjU5OjAyLjQzNTc1OTdaO2tWUHJ0SjhteStCeW1FYXA2SXRjNnc9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiJjMDE1OTc5My05ODIxLTQ4ZWQtOGE5MS0zMzI0ZTllZTFkN2QifQ&amp;p=B2C_1A_signup_signin">Forgot
                     your password?</a>
                 </div>
-                <div class="error itemLevel" aria-hidden="true"
-                  style="display: none;">
-                  <p role="alert"></p>
+                <div class="error itemLevel" aria-hidden="false"
+                  style="display: block;">
+                  <p role="alert">Please enter your password</p>
                 </div>
                 <input type="password" id="password" name="Password"
                   placeholder="Password" aria-label="Password"
-                  autocomplete="current-password" aria-required="true">
+                  autocomplete="current-password" aria-required="true"
+                  class="highlightError">
               </div>
               <div class="working"></div>
 
@@ -89,7 +94,7 @@
             <div class="create">
               <p>
                 Don't have an account?<a id="createAccount"
-                  href="/canopystaging.onmicrosoft.com/B2C_1A_signup_signin/api/CombinedSigninAndSignup/unified?local=signup&amp;csrf_token=U1VhRE5wVXM2VThJeEVPZEpGVTh1ODVGS3JaUzBVd1lyTnM5Y0pTS2J5cU4vUGVYSDNjeEJMR1JUMkJLb1kxazBFQ0JpbWdVaUJud0UxS2pnQUExZlE9PTsyMDI0LTAyLTA1VDA5OjE0OjI2LjIzOTAzNzZaO240TVB3NG45ZzJuWGIxZTBTTyt3SkE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiJkNDY2MGE2Yy1lOWU5LTRiYzUtOGNiNC0yOWMwZTA1YTIzOTcifQ&amp;p=B2C_1A_signup_signin">Sign
+                  href="/canopystaging.onmicrosoft.com/B2C_1A_signup_signin/api/CombinedSigninAndSignup/unified?local=signup&amp;csrf_token=ZUxQckFwYndkb1BpNTgydXkxbklBbE52V0xBUkpuR1BtbTM5dEpTNmxxdVVXK2JsTld5WDRRRzlaeC83SG1nSUJFVGM3b29FSWV0NVQybitSYnBFWFE9PTsyMDI0LTAyLTA1VDA5OjU5OjAyLjQzNTc1OTdaO2tWUHJ0SjhteStCeW1FYXA2SXRjNnc9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiJjMDE1OTc5My05ODIxLTQ4ZWQtOGE5MS0zMzI0ZTllZTFkN2QifQ&amp;p=B2C_1A_signup_signin">Sign
                   up now</a>
               </p>
             </div>
@@ -98,5 +103,14 @@
       </div>
 
     </div>
+
+    <script>
+      const remoteUrl = 'https://pratyushseq.github.io/azure-template';
+      const localUrl = 'http://localhost:8080';
+      const url = window.location.hostname === 'localhost' ? localUrl : remoteUrl;
+      document.querySelectorAll('[data-replace]').forEach((el) => {
+        el.setAttribute(el.dataset.replace, el.dataset[el.dataset.replace].replace('__URL__', url))
+      });
+    </script>
   </body>
 </html>
