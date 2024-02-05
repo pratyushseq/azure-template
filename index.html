@@ -1,39 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sequoia Login</title>
-    <link rel="stylesheet" data-replace="href"
+    <link
+      rel="stylesheet"
+      data-replace="href"
       data-href="__URL__/styles.css"
-      href="https://pratyushseq.github.io/azure-template/styles.css">
+      href="https://pratyushseq.github.io/azure-template/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://i.icomoon.io/public/9f58f18535/SequoiaIcons/style.css"
+    />
   </head>
   <body>
-
     <div class="page-wrapper">
-
       <div class="image-wrapper">
-        <img data-replace="src"
+        <img
+          data-replace="src"
           data-src="__URL__/assets/home-bg.png"
           src="https://pratyushseq.github.io/azure-template/assets/home-bg.png"
-          alt="home-bg">
+          alt="home-bg"
+        />
       </div>
 
       <div class="form-wrapper">
-        <div id="api" data-name="Unified">
-          
-        </div>
+        <div id="api"></div>
       </div>
 
+      <footer>
+        <div class="links">
+          <a href="https://www.sequoia.com/about/" rel="noopener noreferrer"
+            >About</a
+          ><a
+            href="https://www.sequoia.com/about/contact/"
+            rel="noopener noreferrer"
+            >Contact</a
+          ><a
+            href="https://www.sequoia.com/legal/privacy-policy/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Privacy</a
+          ><a
+            href="https://www.sequoia.com/legal/terms/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Terms</a
+          >
+        </div>
+        <div class="links">
+          <a
+            href="https://www.sequoia.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="seq-globe"></i></a
+          ><a
+            href="https://twitter.com/sequoiaTPI/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="seq-twitter"></i></a
+          ><a
+            href="https://www.facebook.com/SequoiaTPI"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="seq-facebook"></i></a
+          ><a
+            href="https://www.linkedin.com/company/sequoia-tpi"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="seq-linkedin"></i></a
+          ><a
+            href="https://www.instagram.com/sequoia_tpi"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="seq-instagram"></i
+          ></a>
+        </div>
+      </footer>
     </div>
 
     <script>
-      const remoteUrl = 'https://pratyushseq.github.io/azure-template';
-      const localUrl = 'http://localhost:8080';
-      const url = window.location.hostname === 'localhost' ? localUrl : remoteUrl;
-      document.querySelectorAll('[data-replace]').forEach((el) => {
-        el.setAttribute(el.dataset.replace, el.dataset[el.dataset.replace].replace('__URL__', url))
+      const remoteUrl = "https://pratyushseq.github.io/azure-template";
+      const localUrl = "http://localhost:8080";
+      const url =
+        window.location.hostname === "localhost" ? localUrl : remoteUrl;
+      document.querySelectorAll("[data-replace]").forEach((el) => {
+        el.setAttribute(
+          el.dataset.replace,
+          el.dataset[el.dataset.replace].replace("__URL__", url)
+        );
       });
     </script>
   </body>
 </html>
+
