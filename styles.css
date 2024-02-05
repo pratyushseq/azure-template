@@ -208,10 +208,34 @@ ul {
   border-radius: 50%;
 }
 
-.buttons {
+.buttons:not(.verify) {
   display: flex;
   flex-direction: row-reverse;
   gap: 16px;
+}
+
+.verify {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 16px;
+}
+
+.verify label {
+  flex: 0 0 40%;
+}
+
+.verify .verifyInput {
+  margin-bottom: 16px;
+  margin-left: 16px;
+  flex: 1;
+}
+
+.verify > button {
+  margin-bottom: 16px;
+  order: 2;
+  flex: 0 1 47%;
 }
 
 .verificationInfoText {
