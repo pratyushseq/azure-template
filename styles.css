@@ -49,6 +49,7 @@ body {
 .form-wrapper {
   width: 50%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   flex: 1 1 0px;
   position: relative;
@@ -58,11 +59,11 @@ body {
 a {
   cursor: pointer;
   text-decoration: none;
-  color: #00b0b3;
+  color: #00B0B3;
   overflow-wrap: break-word;
 }
 
-#api {
+.form {
   min-height: 600px;
   width: 460px;
   background: #eee;
@@ -72,7 +73,8 @@ a {
   padding: 50px;
 }
 
-h2 {
+h2,
+.intro {
   font-size: 16px;
   margin-bottom: 24px;
   font-weight: 500;
@@ -140,6 +142,11 @@ button[type="submit"],
   order: 3;
 }
 
+.attrEntry>div:first-child {
+  order: 0;
+  margin-bottom: 16px;
+}
+
 .attrEntry label,
 .entry-item label {
   margin-bottom: 8px;
@@ -163,7 +170,7 @@ button[type="submit"],
 
 .attrEntry .buttons {
   margin: 16px 0;
-  order: 2;
+  order: 4;
 }
 
 #forgotPassword {
@@ -180,10 +187,23 @@ button[type="submit"],
 .error {
   font-size: 12px;
   font-weight: 500;
-  color: red;
+  color: #E42121;
   line-height: 1;
   order: 4;
+}
+
+.error.show,
+.error[aria-hidden="false"] {
   margin: 8px 0;
+}
+
+.error>p {
+  margin: 0;
+}
+
+.error.show+.textInput,
+.error[aria-hidden="false"]+input {
+  border-color: #E42121;
 }
 
 ul {
@@ -246,21 +266,21 @@ ul {
 }
 
 .verificationInfoText {
-  color: blue;
+  color: #00B0B3;
   margin-bottom: 16px;
   font-size: 14px;
   font-weight: 500;
 }
 
 .verificationSuccessText {
-  color: green;
+  color: #11AB45;
   margin-bottom: 16px;
   font-size: 14px;
   font-weight: 500;
 }
 
 .verificationErrorText {
-  color: red;
+  color: #E42121;
   margin-bottom: 16px;
   font-size: 14px;
   font-weight: 500;
@@ -291,8 +311,14 @@ footer .links a {
 }
 
 @media (max-width: 768px) {
+  body {
+    justify-content: flex-start;
+  }
+
   .page-wrapper {
     padding: 0;
+    margin: 0;
+    flex: 1;
   }
 
   .image-wrapper {
@@ -303,13 +329,15 @@ footer .links a {
     width: 100%;
   }
 
-  #api {
+  .form {
     width: 100%;
     padding: 24px;
   }
 
   footer {
     flex-direction: column;
+    margin-bottom: 8px;
+    margin-top: 24px;
   }
 
   footer .links {

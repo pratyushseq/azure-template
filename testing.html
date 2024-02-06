@@ -15,21 +15,19 @@
       href="https://i.icomoon.io/public/9f58f18535/SequoiaIcons/style.css"
     />
   </head>
+  <style>
+    .page-wrapper {
+      width: auto;
+      flex-wrap: nowrap;
+      overflow: auto;
+      max-width: max-content;
+    }
+    .form-wrapper:not(.last-child) {
+      margin-right: 24px;
+    }
+  </style>
   <body>
-    <div class="page-wrapper">
-      <div class="image-wrapper">
-        <img
-          data-replace="src"
-          data-src="__URL__/assets/home-bg.png"
-          src="https://pratyushseq.github.io/azure-template/assets/home-bg.png"
-          alt="home-bg"
-        />
-      </div>
-
-      <div class="form-wrapper">
-        <div id="api" class="form"></div>
-      </div>
-    </div>
+    <div class="page-wrapper"></div>
 
     <footer>
       <div class="links">
@@ -93,6 +91,7 @@
         );
       });
     </script>
+    <script src="testing.js"></script>
   </body>
 </html>
 
