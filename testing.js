@@ -631,7 +631,7 @@ const forms = [
   </div>`,
   },
   {
-    name: "Singup / Verify Email",
+    name: "Singup / Verify Email / Error",
     content: `<div id="api" data-name="SelfAsserted">
     <div class="buttons">
     </div>
@@ -675,4 +675,3 @@ pageWrapper.innerHTML = forms.reverse().reduce(
       </div>`),
   ""
 );
-

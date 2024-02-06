@@ -92,6 +92,10 @@
           el.dataset[el.dataset.replace].replace("__URL__", url)
         );
       });
+
+      document.querySelectorAll('.helpLink.tiny').forEach(el => {
+        el.parentNode.querySelector('label').appendChild(el);
+      });
     </script>
   </body>
 </html>
