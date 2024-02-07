@@ -352,7 +352,3 @@ footer .links a {
     /* flex-direction: column; */
   }
 }
-
-#signInName, #email {
-  display: none;
-}

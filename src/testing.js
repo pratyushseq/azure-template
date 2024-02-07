@@ -670,8 +670,9 @@ const pageWrapper = document.querySelector(".page-wrapper");
 pageWrapper.innerHTML = forms.reverse().reduce(
   (str, item) =>
     (str += `<div class="form-wrapper">
-        <h3>${item.name}</h3>
-        <div class="form">${item.content}</div>
-      </div>`),
+            <h3>${item.name}</h3>
+            <div class="form">${item.content}</div>
+          </div>`),
   ""
 );
+

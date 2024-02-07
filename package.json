@@ -1,0 +1,17 @@
+{
+  "name": "azure-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:pratyushseq/azure-template.git",
+  "author": "Pratyush Poddar <pratyush.poddar@sequoia.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "http-server": "^14.1.1",
+    "nodemon": "^3.0.3",
+    "zx": "^7.2.3"
+  }
+}

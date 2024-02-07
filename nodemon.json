@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "src",
+    "script.mjs"
+  ],
+  "exec": "zx script.mjs && http-server -s -g",
+  "verbose": false,
+  "quiet": true
+}
