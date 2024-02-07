@@ -13,5 +13,16 @@
     "http-server": "^14.1.1",
     "nodemon": "^3.0.3",
     "zx": "^7.2.3"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src",
+      "script.mjs",
+      "package.json"
+    ],
+    "ext": "html, js, css, mjs",
+    "exec": "zx script.mjs && http-server -s -g",
+    "verbose": false,
+    "quiet": true
   }
 }
