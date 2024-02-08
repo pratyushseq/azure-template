@@ -1,5 +1,7 @@
 const fs = require("fs-extra");
 
+console.clear();
+
 const main = (await fs.readFile("./src/index.html")).toString();
 const testing = (await fs.readFile("./src/testing.html")).toString();
 const styles = (await fs.readFile("./src/styles.css")).toString();
