@@ -9,15 +9,18 @@
         display: none;
       }
     </style>
+    <script defer>
+      function init() {
+        const getUrlParams = () =>
+          Object.fromEntries(new URLSearchParams(location.search));
+        const { idp } = getUrlParams();
+        document.getElementById(idp)?.click();
+      }
+      document.addEventListener("DOMContentLoaded", init, false);
+    </script>
   </head>
   <body>
     <div id="api"></div>
-    <script>
-      const getUrlParams = () =>
-        Object.fromEntries(new URLSearchParams(location.search));
-      const { idp } = getUrlParams();
-      document.getElementById(idp)?.click();
-    </script>
   </body>
 </html>
 

@@ -24,7 +24,7 @@ const formatHtml = (html, env) =>
     )
     .replace(
       "{{SCRIPTS}}",
-      `<script>
+      `<script defer>
     ${script}
     </script>`
     )
