@@ -47,4 +47,4 @@ function init() {
 
 setTimeout(() => {
   init();
-}, 100);
+}, 500);
