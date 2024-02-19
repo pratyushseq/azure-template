@@ -45,3 +45,6 @@ function init() {
   console.log("Welcome to Sequoia!");
 }
 
+setTimeout(() => {
+  init();
+}, 100);
