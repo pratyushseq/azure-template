@@ -16,12 +16,13 @@
         const { idp } = getUrlParams();
         document.getElementById(idp)?.click();
       }
-      document.addEventListener("DOMContentLoaded", init, false);
+      setTimeout(() => {
+        init();
+      }, 500);
     </script>
   </head>
   <body>
     <div id="api"></div>
-    <img src onerror="init()"></img>
   </body>
 </html>
 
