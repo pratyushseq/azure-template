@@ -45,5 +45,3 @@ function init() {
   console.log("Welcome to Sequoia!");
 }
 
-document.addEventListener("DOMContentLoaded", init, false);
-

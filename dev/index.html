@@ -396,8 +396,7 @@ h1 {
 #logo {
   height: 35px;
 }
-    </style>
-    <script defer>
+    </style> <script defer>
     function init() {
   document.querySelectorAll(".helpLink.tiny").forEach((el) => {
     el.parentNode.querySelector("label").appendChild(el);
@@ -445,12 +444,10 @@ h1 {
   console.log("Welcome to Sequoia!");
 }
 
-document.addEventListener("DOMContentLoaded", init, false);
-
 
     </script>
   </head>
-  <body>
+  <body onload="init()">
     <div class="page-wrapper">
       <div class="image-wrapper">
         <img
@@ -527,7 +524,6 @@ document.addEventListener("DOMContentLoaded", init, false);
         ></a>
       </div>
     </footer>
-    <div onload="init()"></div>
   </body>
 </html>
 
