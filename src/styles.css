@@ -184,6 +184,11 @@ button[type="submit"],
   order: 1;
 }
 
+.attrEntry input:disabled,
+.entry-item input:disabled {
+  cursor: not-allowed;
+}
+
 .attrEntry .buttons {
   margin: 16px 0;
   order: 4;
