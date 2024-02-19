@@ -16,8 +16,18 @@ const baseUrlMap = {
 
 const formatHtml = (html, env) =>
   html
-    .replace("{{STYLES}}", `<style>${styles}</style>`)
-    .replace("{{SCRIPTS}}", `<script>${script}</script>`)
+    .replace(
+      "{{STYLES}}",
+      `<style>
+    ${styles}
+    </style>`
+    )
+    .replace(
+      "{{SCRIPTS}}",
+      `<script>
+    ${script}
+    </script>`
+    )
     .replace("{{BASE_URL}}", baseUrlMap[env]);
 
 const envs = Object.keys(baseUrlMap);
