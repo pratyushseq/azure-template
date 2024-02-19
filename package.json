@@ -21,7 +21,7 @@
       "package.json"
     ],
     "ext": "html, js, css, mjs",
-    "exec": "zx script.mjs && http-server -s -g",
+    "exec": "zx script.mjs && http-server -s -g -p 8080",
     "verbose": false,
     "quiet": true
   }

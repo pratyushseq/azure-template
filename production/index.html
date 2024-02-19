@@ -75,7 +75,7 @@ a {
 }
 
 .form {
-  min-height: 600px;
+  /* min-height: 600px; */
   width: 460px;
   background: #eee;
   border-radius: 4px;
@@ -90,6 +90,12 @@ h2,
   margin-bottom: 24px;
   font-weight: 500;
   color: #666666;
+}
+
+.header {
+  margin: 24px 0px 36px;
+  font-size: 26px;
+  color: #000;
 }
 
 button {
@@ -117,6 +123,14 @@ button[type="submit"],
   background-color: black;
   color: white;
   border: 1px solid black;
+}
+
+.divider,
+.intro,
+/* .entry .entry-item:first-of-type, */
+#forgotPassword,
+.create {
+  display: none;
 }
 
 .options {
@@ -160,6 +174,7 @@ button[type="submit"],
 
 .attrEntry label,
 .entry-item label {
+  display: inline-block;
   margin-bottom: 8px;
   font-size: 16px;
   font-weight: 500;
@@ -327,6 +342,11 @@ footer .links a {
   color: #3d3d3d;
 }
 
+.forgot {
+  display: block;
+  margin-top: 24px;
+}
+
 @media (max-width: 768px) {
   body {
     justify-content: flex-start;
@@ -362,6 +382,18 @@ footer .links a {
     margin-bottom: 24px;
     /* flex-direction: column; */
   }
+}
+
+.rememberMe {
+  margin-bottom: 24px;
+}
+
+h1 {
+  display: none;
+}
+
+#logo {
+  height: 35px;
 }</style>
   </head>
   <body>
@@ -374,7 +406,21 @@ footer .links a {
       </div>
 
       <div class="form-wrapper">
-        <div id="api" class="form"></div>
+        <div class="form">
+          <img
+            src="https://media.sequoia.com/public/logo_dark.svg"
+            alt="company-logo"
+            id="logo"
+          />
+          <h2 class="header">Login</h2>
+          <div id="api"></div>
+          <a
+            href="https://login-web-dev.sequoia-development.com/forgot"
+            class="forgot"
+          >
+            Forgot Password
+          </a>
+        </div>
       </div>
     </div>
 
@@ -432,14 +478,47 @@ footer .links a {
   el.parentNode.querySelector("label").appendChild(el);
 });
 
-// document
-//   .querySelectorAll("#signInName")
-//   .forEach((el) => (el.closest(".entry-item").style.display = "none"));
+const getUrlParams = () =>
+  Object.fromEntries(new URLSearchParams(location.search));
 
-// document
-//   .querySelectorAll("#email")
-//   .forEach((el) => (el.closest(".attrEntry").style.display = "none"));
+document.getElementById("UserId")?.setAttribute("disabled", "disabled");
+
+const { login_hint, email } = getUrlParams();
+
+if (location.pathname === "/testing/") {
+  document.getElementById("UserId").value = decodeURIComponent(login_hint);
+}
+
+console.log({ login_hint, email });
+
+const url =
+  "https://hrx-backend.sequoia.com/idm/v1/contacts/verify-email";
+
+if (localStorage.logo) {
+  document.getElementById("logo").src = localStorage.logo;
+}
+
+fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ email }),
+})
+  .then((res) => res.json())
+  .then((data) => {
+    const {
+      data: { companyLogo },
+    } = data;
+    console.log(companyLogo);
+    localStorage.setItem("logo", companyLogo);
+    document.getElementById("logo").src = localStorage.logo;
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 </script>
   </body>
 </html>
+

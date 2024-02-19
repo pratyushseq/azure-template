@@ -1,4 +1,15 @@
-* {
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sequoia Login</title>
+    <link
+      rel="stylesheet"
+      href="https://i.icomoon.io/public/9f58f18535/SequoiaIcons/style.css"
+      data-preload="true"
+    />
+    <style>* {
   box-sizing: border-box;
   min-width: 0;
 }
@@ -383,4 +394,131 @@ h1 {
 
 #logo {
   height: 35px;
+}</style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="image-wrapper">
+        <img
+          src="https://media.sequoia.com/public/utility-logos/seq.png"
+          alt="home-bg"
+        />
+      </div>
+
+      <div class="form-wrapper">
+        <div class="form">
+          <img
+            src="https://media.sequoia.com/public/logo_dark.svg"
+            alt="company-logo"
+            id="logo"
+          />
+          <h2 class="header">Login</h2>
+          <div id="api"></div>
+          <a
+            href="https://login-web-dev.sequoia-development.com/forgot"
+            class="forgot"
+          >
+            Forgot Password
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="links">
+        <a href="https://www.sequoia.com/about/" rel="noopener noreferrer"
+          >About</a
+        ><a
+          href="https://www.sequoia.com/about/contact/"
+          rel="noopener noreferrer"
+          >Contact</a
+        ><a
+          href="https://www.sequoia.com/legal/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Privacy</a
+        ><a
+          href="https://www.sequoia.com/legal/terms/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Terms</a
+        >
+      </div>
+      <div class="links">
+        <a
+          href="https://www.sequoia.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><i class="seq-globe"></i></a
+        ><a
+          href="https://twitter.com/sequoiaTPI/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><i class="seq-twitter"></i></a
+        ><a
+          href="https://www.facebook.com/SequoiaTPI"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><i class="seq-facebook"></i></a
+        ><a
+          href="https://www.linkedin.com/company/sequoia-tpi"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><i class="seq-linkedin"></i></a
+        ><a
+          href="https://www.instagram.com/sequoia_tpi"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><i class="seq-instagram"></i
+        ></a>
+      </div>
+    </footer>
+
+    <script>document.querySelectorAll(".helpLink.tiny").forEach((el) => {
+  el.parentNode.querySelector("label").appendChild(el);
+});
+
+const getUrlParams = () =>
+  Object.fromEntries(new URLSearchParams(location.search));
+
+document.getElementById("UserId")?.setAttribute("disabled", "disabled");
+
+const { login_hint, email } = getUrlParams();
+
+if (location.pathname === "/testing/") {
+  document.getElementById("UserId").value = decodeURIComponent(login_hint);
 }
+
+console.log({ login_hint, email });
+
+const url =
+  "https://hrx-backend-stage.sequoia-development.com/idm/v1/contacts/verify-email";
+
+if (localStorage.logo) {
+  document.getElementById("logo").src = localStorage.logo;
+}
+
+fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ email }),
+})
+  .then((res) => res.json())
+  .then((data) => {
+    const {
+      data: { companyLogo },
+    } = data;
+    console.log(companyLogo);
+    localStorage.setItem("logo", companyLogo);
+    document.getElementById("logo").src = localStorage.logo;
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+</script>
+  </body>
+</html>
+
