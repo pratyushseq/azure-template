@@ -10,9 +10,27 @@ function init() {
 
   const { login_hint, email } = getUrlParams();
 
-  if (location.pathname === "/testing/" && document.getElementById("UserId")) {
+  if (location.hostname === "localhost" && document.getElementById("UserId")) {
     document.getElementById("UserId").value = decodeURIComponent(login_hint);
   }
+
+  // create a label called "Email" and input with id "email" and append to UserId field
+  const emailLabel = document.createElement("label");
+  emailLabel.setAttribute("for", "email");
+  emailLabel.textContent = "Email";
+  const emailInput = document.createElement("input");
+  emailInput.setAttribute("type", "email");
+  emailInput.setAttribute("id", "email");
+  emailInput.setAttribute("value", email);
+  emailInput.setAttribute("disabled", "disabled");
+
+  document.getElementById("UserId").parentNode.appendChild(emailLabel);
+  document.getElementById("UserId").parentNode.appendChild(emailInput);
+
+  document.querySelector('label[for="UserId"]').style.display = "none";
+  document.getElementById("UserId").style.display = "none";
+
+  document.querySelector('.form').style.visibility = "visible";
 
   console.log({ login_hint, email });
 
@@ -47,4 +65,5 @@ function init() {
 
 setTimeout(() => {
   init();
-}, 500);
+}, 100);
+
