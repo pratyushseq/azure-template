@@ -6,7 +6,15 @@
     <title>Sequoia Login</title>
     <style>
       body {
-        display: none;
+        font-family: Helvetica, Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        min-height: 100vh;
+      }
+      #api {
+        display: none !important;
       }
     </style>
     <script defer>
@@ -22,6 +30,7 @@
     </script>
   </head>
   <body>
+    <div class="loading">Loading...</div>
     <div id="api"></div>
   </body>
 </html>
