@@ -52,10 +52,9 @@ folders.forEach((folder) => {
 
   if (!html) {
     html = fs.readFileSync(`./src/home/index.html`)?.toString();
-    js = fs.readFileSync(`./src/home/script.js`)?.toString();
     css = fs.readFileSync(`./src/home/styles.css`)?.toString() + css;
   }
-  
+
   const folderString = folder === "home" ? "" : `/${folder}`;
 
   envs.forEach((env) => {
