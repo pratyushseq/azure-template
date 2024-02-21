@@ -14,10 +14,9 @@ const init = () => {
   document.getElementById("UserId").style.display = "none";
 
   document.getElementById("emailVerificationControl_but_send_code").click();
+  document.getElementById("emailVerificationControl_but_send_code").innerText =
+    "Sending...";
 };
 
 setTimeout(init, 100);
-
-
-
 
