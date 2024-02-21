@@ -27,9 +27,11 @@ const init = () => {
   document.getElementById("emailVerificationControl_but_send_code").click();
 
   isCodeInputAvailable(() => {
-    console.log('isCodeInputAvailable');
-    document.getElementById("email")?.setAttribute("disabled", "disabled");
-    document.getElementById("continue").innerText = "Continue";
+    setTimeout(() => {
+      console.log('isCodeInputAvailable');
+      document.getElementById("email")?.setAttribute("disabled", "disabled");
+      document.getElementById("continue").innerText = "Continue";
+    }, 100);
   });
 };
 
