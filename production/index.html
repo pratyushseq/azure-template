@@ -309,23 +309,32 @@ ul {
 
 .verificationInfoText {
   color: #00B0B3;
-  margin-bottom: 16px;
   font-size: 14px;
   font-weight: 500;
+}
+
+.verificationInfoText > div {
+  margin-bottom: 16px;
 }
 
 .verificationSuccessText {
   color: #11AB45;
-  margin-bottom: 16px;
   font-size: 14px;
   font-weight: 500;
 }
 
+.verificationSuccessText > div {
+  margin-bottom: 16px;
+}
+
 .verificationErrorText {
   color: #E42121;
-  margin-bottom: 16px;
   font-size: 14px;
   font-weight: 500;
+}
+
+.verificationErrorText > div {
+  margin-bottom: 16px;
 }
 
 footer {
@@ -417,10 +426,9 @@ h1 {
 
   const getUrlParams = () =>
     Object.fromEntries(new URLSearchParams(location.search));
+  const { login_hint, email } = getUrlParams();
 
   document.getElementById("UserId")?.setAttribute("disabled", "disabled");
-
-  const { login_hint, email } = getUrlParams();
 
   if (location.hostname === "localhost" && document.getElementById("UserId")) {
     document.getElementById("UserId").value = decodeURIComponent(login_hint);
@@ -442,7 +450,7 @@ h1 {
   document.querySelector('label[for="UserId"]').style.display = "none";
   document.getElementById("UserId").style.display = "none";
 
-  document.querySelector('.form').style.visibility = "visible";
+  document.querySelector(".form").style.visibility = "visible";
 
   console.log({ login_hint, email });
 

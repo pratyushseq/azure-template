@@ -5,10 +5,9 @@ function init() {
 
   const getUrlParams = () =>
     Object.fromEntries(new URLSearchParams(location.search));
+  const { login_hint, email } = getUrlParams();
 
   document.getElementById("UserId")?.setAttribute("disabled", "disabled");
-
-  const { login_hint, email } = getUrlParams();
 
   if (location.hostname === "localhost" && document.getElementById("UserId")) {
     document.getElementById("UserId").value = decodeURIComponent(login_hint);
@@ -30,7 +29,7 @@ function init() {
   document.querySelector('label[for="UserId"]').style.display = "none";
   document.getElementById("UserId").style.display = "none";
 
-  document.querySelector('.form').style.visibility = "visible";
+  document.querySelector(".form").style.visibility = "visible";
 
   console.log({ login_hint, email });
 
