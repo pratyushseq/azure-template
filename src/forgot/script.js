@@ -1,5 +1,7 @@
 const isCodeInputAvailable = (callback) => {
-  const isAvailable = !!document.getElementById("emailVerificationCode");
+  const isAvailable = !!document.getElementById(
+    "emailVerificationControl_but_verify_code"
+  );
   const interval = setInterval(() => {
     if (isAvailable) {
       clearInterval(interval);
@@ -28,7 +30,7 @@ const init = () => {
 
   isCodeInputAvailable(() => {
     setTimeout(() => {
-      console.log('isCodeInputAvailable');
+      console.log("isCodeInputAvailable");
       document.getElementById("email")?.setAttribute("disabled", "disabled");
       document.getElementById("continue").innerText = "Continue";
     }, 100);
@@ -36,4 +38,5 @@ const init = () => {
 };
 
 setTimeout(init, 100);
+
 
