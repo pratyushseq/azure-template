@@ -79,6 +79,7 @@ a {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -168,8 +169,12 @@ button[type="submit"],
 .entry-item {
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
   position: relative;
+}
+
+.attrEntry:not(:last-child),
+.entry-item:not(:last-child) {
+  margin-bottom: 16px;
 }
 
 .attrEntry>* {
@@ -313,7 +318,7 @@ ul {
   font-weight: 500;
 }
 
-.verificationInfoText > div {
+.verificationInfoText>div {
   margin-bottom: 16px;
 }
 
@@ -323,7 +328,7 @@ ul {
   font-weight: 500;
 }
 
-.verificationSuccessText > div {
+.verificationSuccessText>div {
   margin-bottom: 16px;
 }
 
@@ -333,7 +338,7 @@ ul {
   font-weight: 500;
 }
 
-.verificationErrorText > div {
+.verificationErrorText>div {
   margin-bottom: 16px;
 }
 
@@ -417,6 +422,10 @@ h1 {
 
 #logo {
   height: 35px;
+}
+
+#attributeList>ul {
+  margin-top: 0;
 }
     </style> <script defer>
     function init() {

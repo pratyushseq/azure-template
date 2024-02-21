@@ -1,3 +1,11 @@
-.attrEntry > a.helpLink.tiny {
+.attrEntry>a.helpLink.tiny {
   display: none;
+}
+
+#emailVerificationControl .verificationInfoText>div::after,
+#emailVerificationControl .verificationSuccessText>div::after,
+#emailVerificationControl .verificationErrorText>div::after {
+  content: '';
+  margin-bottom: 24px;
+  display: block;
 }

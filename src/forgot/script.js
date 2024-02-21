@@ -9,7 +9,15 @@ const init = () => {
   document.getElementById("email")?.setAttribute("value", email);
   document.getElementById("UserId")?.setAttribute("disabled", "disabled");
   document.getElementById("email")?.setAttribute("disabled", "disabled");
+
+  document.getElementById("UserId_label").style.display = "none";
+  document.getElementById("UserId").style.display = "none";
+
+  document.getElementById("emailVerificationControl_but_send_code").click();
 };
 
 setTimeout(init, 100);
+
+
+
 
