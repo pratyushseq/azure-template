@@ -165,6 +165,12 @@ button[type="submit"],
   margin-bottom: 16px;
 }
 
+.attrEntry ul li:not(:last-child)::after {
+  margin-bottom: 16px;
+  display: block;
+  content: '';
+}
+
 .attrEntry>* {
   order: 3;
 }
