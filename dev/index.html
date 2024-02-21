@@ -433,6 +433,11 @@ h1 {
 #attributeList>ul {
   margin-top: 0;
 }
+
+button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.2;
+}
     </style> <script defer>
     function init() {
   document.querySelectorAll(".helpLink.tiny")?.forEach((el) => {

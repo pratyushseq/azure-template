@@ -35,6 +35,22 @@ const init = () => {
       document.getElementById("continue").innerText = "Continue";
     }, 100);
   });
+
+  document
+    .getElementById("emailVerificationControl_but_send_new_code")
+    .addEventListener("click", () => {
+      document.getElementById("continue").innerText = "Sending...";
+
+      isCodeInputAvailable(() => {
+        setTimeout(() => {
+          console.log("isCodeInputAvailable");
+          document
+            .getElementById("email")
+            ?.setAttribute("disabled", "disabled");
+          document.getElementById("continue").innerText = "Continue";
+        }, 100);
+      });
+    });
 };
 
 setTimeout(init, 100);
