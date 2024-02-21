@@ -13,7 +13,7 @@ const init = () => {
   document.getElementById("UserId_label").style.display = "none";
   document.getElementById("UserId").style.display = "none";
 
-  document.getElementById("emailVerificationControl_but_send_code").click();
+  // document.getElementById("emailVerificationControl_but_send_code").click();
   document.getElementById("emailVerificationControl_but_send_code").innerText =
     "Sending...";
 };
