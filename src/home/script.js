@@ -29,6 +29,13 @@ function init() {
   document.querySelector('label[for="UserId"]').style.display = "none";
   document.getElementById("UserId").style.display = "none";
 
+  const forgotPassword = document.getElementById("forgotPassword");
+  forgotPassword.setAttribute(
+    "href",
+    forgotPassword.getAttribute("href") +
+      `&login_hint=${login_hint}&email=${email}`
+  );
+
   document.querySelector(".form").style.visibility = "visible";
 
   console.log({ login_hint, email });
