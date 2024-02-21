@@ -1,7 +1,7 @@
 const isCodeInputAvailable = (callback) => {
-  const isAvailable = !!document.getElementById(
-    "emailVerificationControl_but_verify_code"
-  );
+  const isAvailable =
+    document.getElementById("emailVerificationCode").parentNode.parentNode.style
+      .display !== "none";
   const interval = setInterval(() => {
     if (isAvailable) {
       clearInterval(interval);
@@ -38,5 +38,4 @@ const init = () => {
 };
 
 setTimeout(init, 100);
-
 
