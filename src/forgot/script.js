@@ -1,8 +1,8 @@
 const isCodeInputAvailable = (callback) => {
-  const isAvailable =
-    document.getElementById("emailVerificationCode").parentNode.parentNode.style
-      .display !== "none";
   const interval = setInterval(() => {
+    const isAvailable =
+      document.getElementById("emailVerificationCode").parentNode.parentNode
+        .style.display !== "none";
     if (isAvailable) {
       clearInterval(interval);
       callback();
