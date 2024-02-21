@@ -1,3 +1,13 @@
+const isCodeInputAvailable = (callback) => {
+  const isAvailable = !!document.getElementById("emailVerificationCode");
+  const interval = setInterval(() => {
+    if (isAvailable) {
+      clearInterval(interval);
+      callback();
+    }
+  }, 100);
+};
+
 const init = () => {
   const getUrlParams = () =>
     Object.fromEntries(new URLSearchParams(location.search));
@@ -13,9 +23,13 @@ const init = () => {
   document.getElementById("UserId_label").style.display = "none";
   document.getElementById("UserId").style.display = "none";
 
-  // document.getElementById("emailVerificationControl_but_send_code").click();
-  document.getElementById("emailVerificationControl_but_send_code").innerText =
-    "Sending...";
+  document.getElementById("emailVerificationControl_but_send_code").click();
+  document.getElementById("continue").innerText = "Sending...";
+
+  isCodeInputAvailable(() => {
+    document.getElementById("email")?.setAttribute("disabled", "disabled");
+    document.getElementById("continue").innerText = "Continue";
+  });
 };
 
 setTimeout(init, 100);
