@@ -30,7 +30,6 @@ const init = () => {
 
   isCodeInputAvailable(() => {
     setTimeout(() => {
-      console.log("isCodeInputAvailable");
       document.getElementById("email")?.setAttribute("disabled", "disabled");
       document.getElementById("continue").innerText = "Continue";
     }, 100);
@@ -43,7 +42,6 @@ const init = () => {
 
       isCodeInputAvailable(() => {
         setTimeout(() => {
-          console.log("isCodeInputAvailable");
           document
             .getElementById("email")
             ?.setAttribute("disabled", "disabled");
