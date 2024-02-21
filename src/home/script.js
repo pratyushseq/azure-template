@@ -1,6 +1,6 @@
 function init() {
-  document.querySelectorAll(".helpLink.tiny").forEach((el) => {
-    el.parentNode.querySelector("label").appendChild(el);
+  document.querySelectorAll(".helpLink.tiny")?.forEach((el) => {
+    el.parentNode.querySelector("label")?.appendChild(el);
   });
 
   const getUrlParams = () =>

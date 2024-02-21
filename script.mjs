@@ -2,19 +2,15 @@ const fs = require("fs-extra");
 
 console.clear();
 
-const main = (await fs.readFile("./src/index.html")).toString();
-const idp = (await fs.readFile("./src/idp.html")).toString();
-const testing = (await fs.readFile("./src/testing.html")).toString();
-const styles = (await fs.readFile("./src/styles.css")).toString();
-const script = (await fs.readFile("./src/script.js")).toString();
-
 const baseUrlMap = {
   dev: "https://hrx-backend-dev.sequoia-development.com",
   stage: "https://hrx-backend-stage.sequoia-development.com",
   production: "https://hrx-backend.sequoia.com",
 };
 
-const formatHtml = (html, env) =>
+const envs = Object.keys(baseUrlMap);
+
+const formatHtml = ({ env, html, script, styles }) =>
   html
     .replace(
       "{{STYLES}}",
@@ -30,13 +26,65 @@ const formatHtml = (html, env) =>
     )
     .replace("{{BASE_URL}}", baseUrlMap[env]);
 
-const envs = Object.keys(baseUrlMap);
+const folders = fs
+  .readdirSync("./src", {})
+  .filter((item) => !item.startsWith("."))
+  .filter((item) => fs.lstatSync(path.resolve("./src", item)).isDirectory());
 
-envs.forEach((env) => {
-  fs.outputFileSync(`./${env}/index.html`, formatHtml(main, env));
-  fs.outputFileSync(`./${env}/idp/index.html`, formatHtml(idp, env));
+const testingJs = fs.readFileSync(`./src/testing.js`)?.toString();
+
+console.log(folders);
+
+folders.forEach((folder) => {
+  let html = "",
+    js = "",
+    css = "";
+
+  try {
+    html = fs.readFileSync(`./src/${folder}/index.html`)?.toString();
+  } catch (_e) {}
+  try {
+    js = fs.readFileSync(`./src/${folder}/script.js`)?.toString();
+  } catch (_e) {}
+  try {
+    css = fs.readFileSync(`./src/${folder}/styles.css`)?.toString();
+  } catch (_e) {}
+
+  if (!html) {
+    html = fs.readFileSync(`./src/home/index.html`)?.toString();
+    js = fs.readFileSync(`./src/home/script.js`)?.toString();
+    css = fs.readFileSync(`./src/home/styles.css`)?.toString() + css;
+  }
+  
+  const folderString = folder === "home" ? "" : `/${folder}`;
+
+  envs.forEach((env) => {
+    fs.outputFileSync(
+      `./${env}${folderString}/index.html`,
+      formatHtml({
+        html,
+        script: js,
+        styles: css,
+        env,
+      })
+    );
+  });
+
+  fs.outputFileSync(
+    `./testing${folderString}/index.html`,
+    formatHtml({
+      html,
+      script: testingJs + js,
+      styles: css,
+      env: "dev",
+    })
+  );
 });
 
-const finalTestingHtml = formatHtml(testing);
-fs.outputFileSync("./testing/index.html", formatHtml(testing, "stage"));
+console.log("Updated");
+
+
+
+
+
 
