@@ -10,6 +10,11 @@
   display: block;
 }
 
-#cancel, #emailVerificationControl_but_change_claims {
+#cancel,
+#emailVerificationControl_but_change_claims {
   display: none !important;
+}
+
+#attributeList>ul>li:not(:last-child) {
+  margin-bottom: 24px;
 }
