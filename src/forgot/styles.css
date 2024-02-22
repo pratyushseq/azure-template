@@ -10,6 +10,6 @@
   display: block;
 }
 
-#cancel {
-  display: none;
+#cancel, #emailVerificationControl_but_change_claims {
+  display: none !important;
 }
