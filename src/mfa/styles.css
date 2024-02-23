@@ -46,3 +46,7 @@
 #QrCodeVerifyInstruction {
   margin: 0;
 }
+
+.AuthenticatorInfoControl .attrEntry {
+  margin-top: 0;
+}
