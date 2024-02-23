@@ -17,6 +17,8 @@ function init() {
   document.querySelector('label[for="UserId"]').style.display = "none";
   document.getElementById("UserId").style.display = "none";
 
+  document.getElementById("password").focus();
+
   const forgotPassword = document.getElementById("forgotPassword");
   forgotPassword.setAttribute(
     "href",
@@ -25,7 +27,5 @@ function init() {
   );
 }
 
-setTimeout(() => {
-  init();
-}, 100);
+setTimeout(init, 100);
 

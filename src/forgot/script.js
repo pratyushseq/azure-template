@@ -27,6 +27,9 @@ const init = () => {
 
   document.getElementById("continue").innerText = "Sending...";
   document.getElementById("emailVerificationControl_but_send_code").click();
+  document
+    .getElementById("emailVerificationCode")
+    .setAttribute("autofocus", true);
 
   isCodeInputAvailable(() => {
     setTimeout(() => {
