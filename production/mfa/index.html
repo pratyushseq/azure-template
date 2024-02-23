@@ -447,6 +447,45 @@ h1 {
 button[aria-disabled="true"] {
   cursor: not-allowed;
   opacity: 0.2;
+}.form {
+  text-align: center;
+}
+
+#api {
+  text-align: center;
+}
+
+.authenticatorIconControlContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.authenticatorIconControlContent label {
+  flex: 1 0 100%;
+  font-weight: normal;
+  margin-top: 24px;
+  font-size: 14px;
+}
+
+.authenticatorIconControlContent>a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 50%;
+}
+
+.authenticatorIconControlContent>a>img {
+  margin: 0 !important;
+}
+
+.qrCodeControlContent {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+#totpQrCodeControl-img {
+  margin: auto;
 }
     </style> <script defer>
     const getUrlParams = () =>
