@@ -199,7 +199,7 @@ const initTesting = () => {
   const folder = location.pathname.split("/")[2] || "home";
   document.getElementById("api").innerHTML = forms.filter(
     (form) => form.id === folder
-  )?.[0]?.content;
+  )?.[0]?.content || '';
 };
 
 setTimeout(() => {

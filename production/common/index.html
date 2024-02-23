@@ -68,12 +68,6 @@ body {
   align-items: center;
 }
 
-#back {
-  position: absolute;
-  bottom: calc(100% + 16px);
-  left: 0;
-}
-
 a {
   cursor: pointer;
   text-decoration: none;
@@ -92,7 +86,6 @@ a {
 }
 
 .form {
-  position: relative;
   width: 460px;
   background: #eee;
   border-radius: 4px;
@@ -111,7 +104,6 @@ h2,
 }
 
 .header {
-  display: none;
   margin: 24px 0px 36px;
   font-size: 26px;
   color: #000;
@@ -272,7 +264,6 @@ ul {
 }
 
 .helpLink {
-  display: none;
   position: absolute;
   top: -3px;
   right: 0;
@@ -447,36 +438,445 @@ h1 {
 button[aria-disabled="true"] {
   cursor: not-allowed;
   opacity: 0.2;
-}.attrEntry>a.helpLink.tiny {
+}* {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    sans-serif;
+  background-color: #edeef7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  width: 100%;
+  max-width: 1600px;
+  margin: auto;
+  padding: 80px 120px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-wrapper {
+  width: 50%;
+  position: sticky;
+  top: max(20%, 20vh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 480px;
+}
+
+.image-wrapper img {
+  width: 480px;
+  height: 480px;
+}
+
+.form-wrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 0px;
+  position: relative;
+  align-items: center;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #00B0B3;
+  overflow-wrap: break-word;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.form {
+  width: 460px;
+  background: #eee;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background: #fcfcfc;
+  padding: 50px;
+  animation: fadeIn 200ms ease-in;
+}
+
+h2,
+.intro {
+  font-size: 16px;
+  margin-bottom: 24px;
+  font-weight: 500;
+  color: #666666;
+}
+
+.header {
+  margin: 24px 0px 36px;
+  font-size: 26px;
+  color: #000;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  gap: 8px;
+  cursor: pointer;
+  padding: 0px 12px;
+  height: 50px;
+  font-size: 1rem;
+  width: 100%;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+
+button:disabled {
+  opacity: 0.3;
+}
+
+button[type="submit"],
+.sendButton {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+}
+
+.divider,
+.intro,
+/* .entry .entry-item:first-of-type, */
+.create {
   display: none;
 }
 
-#emailVerificationControl .verificationInfoText>div::after,
-#emailVerificationControl .verificationSuccessText>div::after,
-#emailVerificationControl .verificationErrorText>div::after {
-  content: '';
-  margin-bottom: 24px;
+.options {
+  display: flex;
+}
+
+.options>* {
+  flex: 1;
+}
+
+.options>*:not(:last-child) {
+  margin-right: 16px;
+}
+
+.options button {
+  height: 42px;
+  font-size: 14px;
+}
+
+.divider {
+  text-align: center;
+  margin: 24px 0;
+}
+
+.attrEntry,
+.entry-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.attrEntry:not(:last-child),
+.entry-item:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.attrEntry ul li:not(:last-child)::after {
+  margin-bottom: 16px;
   display: block;
+  content: '';
 }
 
-#cancel,
-#emailVerificationControl_but_change_claims {
-  display: none !important;
+.attrEntry>* {
+  order: 3;
 }
 
-#attributeList>ul>li:not(:last-child) {
+.attrEntry>div:first-child {
+  order: 0;
+  margin-bottom: 16px;
+}
+
+.attrEntry label,
+.entry-item label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  order: 0;
+  position: relative;
+}
+
+.attrEntry input,
+.entry-item input {
+  padding: 14px 12px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  font-size: 1rem;
+  line-height: 1.25;
+  outline: none;
+  box-shadow: none;
+  order: 1;
+}
+
+.attrEntry input:disabled,
+.entry-item input:disabled {
+  cursor: not-allowed;
+}
+
+.attrEntry .buttons {
+  margin: 16px 0;
+  order: 4;
+}
+
+#forgotPassword {
+  margin-bottom: 8px;
+  font-size: 14px;
+  float: right;
+  margin-top: 2px;
+}
+
+#createAccount {
+  margin-left: 4px;
+}
+
+.error {
+  font-size: 12px;
+  font-weight: 500;
+  color: #E42121;
+  line-height: 1;
+  order: 4;
+}
+
+.error.show,
+.error[aria-hidden="false"] {
+  margin: 8px 0;
+}
+
+.error>p {
+  margin: 0;
+}
+
+.error.show+.textInput,
+.error[aria-hidden="false"]+input {
+  border-color: #E42121;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.helpLink {
+  position: absolute;
+  top: -3px;
+  right: 0;
+  font-size: 0;
+}
+
+.helpLink::after {
+  content: '?';
+  position: absolute;
+  top: 4px;
+  right: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #aaa;
+  border: 1px solid #ccc;
+  height: 16px;
+  width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.buttons:not(.verify) {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 16px;
+}
+
+.verify {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 16px;
+}
+
+.verify label {
+  flex: 0 0 40%;
+}
+
+.verify .verifyInput {
+  margin-bottom: 16px;
+  margin-left: 16px;
+  flex: 1;
+  text-align: center;
+}
+
+.verify>button {
+  margin-bottom: 16px;
+  order: 2;
+  flex: 1 1 47%;
+}
+
+.verificationInfoText {
+  color: #00B0B3;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.verificationInfoText>div {
+  margin-bottom: 16px;
+}
+
+.verificationSuccessText {
+  color: #11AB45;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.verificationSuccessText>div {
+  margin-bottom: 16px;
+}
+
+.verificationErrorText {
+  color: #E42121;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.verificationErrorText>div {
+  margin-bottom: 16px;
+}
+
+footer {
+  flex: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 36px;
+  margin-top: 48px;
+  position: sticky;
+  max-width: 100vw;
+  right: 0;
+  left: 0;
+}
+
+footer .links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 0.875rem;
+  margin: 12px 0px;
+  width: 50%;
+  justify-content: center;
+}
+
+footer .links a {
+  margin-left: 18px;
+  color: #3d3d3d;
+}
+
+.forgot {
+  display: block;
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  body {
+    justify-content: flex-start;
+  }
+
+  .page-wrapper {
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+
+  .image-wrapper {
+    display: none;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    padding: 24px;
+  }
+
+  .form {
+    width: 100%;
+    padding: 24px;
+  }
+
+  footer {
+    flex-direction: column;
+    margin-bottom: 8px;
+    margin-top: 24px;
+  }
+
+  footer .links {
+    width: 100%;
+    margin-bottom: 24px;
+    /* flex-direction: column; */
+  }
+}
+
+.rememberMe {
   margin-bottom: 24px;
+}
+
+h1 {
+  display: none;
+}
+
+#logo {
+  height: 35px;
+}
+
+#attributeList>ul {
+  margin-top: 0;
+}
+
+button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.2;
 }
     </style> <script defer>
     const getUrlParams = () =>
   Object.fromEntries(new URLSearchParams(location.search));
-
-const commonInit = () => {
+  
+  const init = () => {
   const { login_hint } = getUrlParams();
 
-  // document.querySelectorAll(".helpLink.tiny")?.forEach((el) => {
-  //   el.parentNode.querySelector("label")?.appendChild(el);
-  // });
+  document.querySelectorAll(".helpLink.tiny")?.forEach((el) => {
+    el.parentNode.querySelector("label")?.appendChild(el);
+  });
 
   document.getElementById("UserId")?.setAttribute("disabled", "disabled");
 
@@ -491,14 +891,6 @@ const commonInit = () => {
   if (localStorage.logo) {
     document.getElementById("logo").src = localStorage.logo;
   }
-
-  document.getElementById("back").addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    // go back to last page
-    console.log("hello");
-    window.history.back();
-  });
 
   fetch(url, {
     method: "POST",
@@ -523,62 +915,8 @@ const commonInit = () => {
   console.log("Welcome to Sequoia!");
 };
 
-setTimeout(commonInit, 100);
-
-const isCodeInputAvailable = (callback) => {
-  const interval = setInterval(() => {
-    const isAvailable =
-      document.getElementById("emailVerificationCode").parentNode.parentNode
-        .style.display !== "none";
-    if (isAvailable) {
-      clearInterval(interval);
-      callback();
-    }
-  }, 100);
-};
-
-const init = () => {
-  const getUrlParams = () =>
-    Object.fromEntries(new URLSearchParams(location.search));
-  const { login_hint, email } = getUrlParams();
-
-  document.querySelector(".form").style.visibility = "visible";
-
-  document.getElementById("UserId")?.setAttribute("value", login_hint);
-  document.getElementById("email")?.setAttribute("value", email);
-  document.getElementById("UserId")?.setAttribute("disabled", "disabled");
-  document.getElementById("email")?.setAttribute("disabled", "disabled");
-
-  document.getElementById("UserId_label").style.display = "none";
-  document.getElementById("UserId").style.display = "none";
-
-  document.getElementById("continue").innerText = "Sending...";
-  document.getElementById("emailVerificationControl_but_send_code").click();
-
-  isCodeInputAvailable(() => {
-    setTimeout(() => {
-      document.getElementById("email")?.setAttribute("disabled", "disabled");
-      document.getElementById("continue").innerText = "Continue";
-    }, 100);
-  });
-
-  document
-    .getElementById("emailVerificationControl_but_send_new_code")
-    .addEventListener("click", () => {
-      document.getElementById("continue").innerText = "Sending...";
-
-      isCodeInputAvailable(() => {
-        setTimeout(() => {
-          document
-            .getElementById("email")
-            ?.setAttribute("disabled", "disabled");
-          document.getElementById("continue").innerText = "Continue";
-        }, 100);
-      });
-    });
-};
-
 setTimeout(init, 100);
+
 
 
     </script>
@@ -594,7 +932,6 @@ setTimeout(init, 100);
 
       <div class="form-wrapper">
         <div class="form" style="visibility: hidden">
-          <a id="back"><i class="seq-angle-left"></i> Back</a>
           <img
             src="https://media.sequoia.com/public/logo_dark.svg"
             alt="company-logo"

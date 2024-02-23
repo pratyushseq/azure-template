@@ -28,8 +28,10 @@ const formatHtml = ({ env, html, script, styles }) =>
 
 const folders = fs
   .readdirSync("./src", {})
-  .filter((item) => !item.startsWith("."))
+  .filter((item) => !item.startsWith(".") && item !== "common")
   .filter((item) => fs.lstatSync(path.resolve("./src", item)).isDirectory());
+
+console.log(folders);
 
 const testingJs = fs.readFileSync(`./src/testing.js`)?.toString();
 
@@ -51,9 +53,10 @@ folders.forEach((folder) => {
   } catch (_e) {}
 
   if (!html) {
-    html = fs.readFileSync(`./src/home/index.html`)?.toString();
-    css = fs.readFileSync(`./src/home/styles.css`)?.toString() + css;
+    html = fs.readFileSync(`./src/common/index.html`)?.toString();
   }
+  js = fs.readFileSync(`./src/common/script.js`)?.toString() + js;
+  css = fs.readFileSync(`./src/common/styles.css`)?.toString() + css;
 
   const folderString = folder === "home" ? "" : `/${folder}`;
 
