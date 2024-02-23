@@ -2,7 +2,7 @@ const getUrlParams = () =>
   Object.fromEntries(new URLSearchParams(location.search));
 
 const commonInit = () => {
-  const { login_hint } = getUrlParams();
+  const { login_hint, email } = getUrlParams();
 
   // document.querySelectorAll(".helpLink.tiny")?.forEach((el) => {
   //   el.parentNode.querySelector("label")?.appendChild(el);
@@ -56,4 +56,5 @@ const commonInit = () => {
 };
 
 setTimeout(commonInit, 100);
+
 
