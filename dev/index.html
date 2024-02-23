@@ -479,6 +479,28 @@ const commonInit = () => {
     document.getElementById("logo").src = localStorage.logo;
   }
 
+  if (email) {
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const {
+          data: { companyLogo },
+        } = data;
+        console.log(companyLogo);
+        localStorage.setItem("logo", companyLogo);
+        document.getElementById("logo").src = localStorage.logo;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   document.getElementById("back").addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -486,26 +508,6 @@ const commonInit = () => {
     console.log("hello");
     window.history.back();
   });
-
-  fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      const {
-        data: { companyLogo },
-      } = data;
-      console.log(companyLogo);
-      localStorage.setItem("logo", companyLogo);
-      document.getElementById("logo").src = localStorage.logo;
-    })
-    .catch((err) => {
-      console.error(err);
-    });
 
   console.log("Welcome to Sequoia!");
 };
