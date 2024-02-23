@@ -38,3 +38,11 @@
 #totpQrCodeControl-img {
   margin: auto;
 }
+
+.attrEntry {
+  margin-top: 24px;
+}
+
+#QrCodeVerifyInstruction {
+  margin: 0;
+}
