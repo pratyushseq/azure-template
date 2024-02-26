@@ -50,3 +50,7 @@
 .AuthenticatorInfoControl .attrEntry {
   margin-top: 0;
 }
+
+#cancel {
+  display: none !important;
+}
