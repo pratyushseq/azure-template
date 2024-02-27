@@ -25,6 +25,28 @@ function init() {
     forgotPassword.getAttribute("href") +
       `&login_hint=${login_hint}&email=${email}`
   );
+
+  const checkForError = (cb) => {
+    if (document.querySelector(".error.pageLevel").style.display === "block") {
+      cb();
+    }
+  };
+
+  document
+    .getElementById("localAccountForm")
+    .addEventListener("submit", () => {
+      const button = document.getElementById("next");
+      button.innerText = "Signing in...";
+      button.setAttribute("disabled", true);
+
+      const interval = setInterval(() => {
+        checkForError(() => {
+          button.innerText = "Sign in";
+          button.removeAttribute("disabled");
+          clearInterval(interval);
+        });
+      }, 100);
+    });
 }
 
 setTimeout(init, 100);
