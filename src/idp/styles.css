@@ -7,6 +7,6 @@ body {
   min-height: 100vh;
 }
 
-#api {
-  display: none !important;
+.form {
+  display: none;
 }

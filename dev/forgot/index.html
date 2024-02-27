@@ -153,14 +153,16 @@ button[type="submit"],
 
 .options {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .options>* {
-  flex: 1;
+  flex: 1 1 auto;
+  margin-bottom: 24px;
 }
 
-.options>*:not(:last-child) {
-  margin-right: 16px;
+.options>* {
+  margin: 8px;
 }
 
 .options button {

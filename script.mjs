@@ -2,6 +2,12 @@ const fs = require("fs-extra");
 
 console.clear();
 
+const loginUrl = {
+  dev: "https://login-web-dev.sequoia-development.com",
+  stage: "https://login-web-stage.sequoia-development.com",
+  production: "https://login.sequoia.com",
+};
+
 const baseUrlMap = {
   dev: "https://hrx-backend-dev.sequoia-development.com",
   stage: "https://hrx-backend-stage.sequoia-development.com",
@@ -24,7 +30,8 @@ const formatHtml = ({ env, html, script, styles }) =>
     ${script}
     </script>`
     )
-    .replace("{{BASE_URL}}", baseUrlMap[env]);
+    .replace("{{BASE_URL}}", baseUrlMap[env])
+    .replace("{{LOGIN_URL}}", loginUrl[env]);
 
 const folders = fs
   .readdirSync("./src", {})
@@ -84,9 +91,4 @@ folders.forEach((folder) => {
 });
 
 console.log("Updated");
-
-
-
-
-
 

@@ -23,7 +23,7 @@ const forms = [
             <div class="error itemLevel" aria-hidden="true" role="alert">
               <p></p>
             </div>
-            <input type="text" id="UserId" name="Username" title="Please enter a valid username" pattern="^[a-zA-Z0-9]+[a-zA-Z0-9_-]*$" autofocus="" placeholder="Username" aria-label="Username">
+            <input type="text" id="UserId" name="Username" title="Please enter a valid username" pattern="^[a-zA-Z0-9]+[a-zA-Z0-9_-]*$" placeholder="Username" aria-label="Username">
           </div>
             <div class="entry-item">
               <div class="password-label">
@@ -71,7 +71,7 @@ const forms = [
             <div class="error itemLevel" aria-hidden="false" role="alert" style="display: block;">
               <p>Please enter your Username</p>
             </div>
-            <input type="text" id="UserId" name="Username" title="Please enter a valid username" pattern="^[a-zA-Z0-9]+[a-zA-Z0-9_-]*$" autofocus="" placeholder="Username" aria-label="Username" class="highlightError">
+            <input type="text" id="UserId" name="Username" title="Please enter a valid username" pattern="^[a-zA-Z0-9]+[a-zA-Z0-9_-]*$" placeholder="Username" aria-label="Username" class="highlightError">
           </div>
             <div class="entry-item">
               <div class="password-label">
@@ -105,7 +105,7 @@ const forms = [
           </div>
           <div class="options">
               <div>
-                  <button class="accountButton firstButton claims-provider-selection" id="FacebookExchange" role="link" autofocus="">Facebook</button>
+                  <button class="accountButton firstButton claims-provider-selection" id="FacebookExchange" role="link">Facebook</button>
               </div>
                           <div>
                   <button class="accountButton claims-provider-selection" id="ContosoExchange" role="link">Auth0</button>
@@ -133,7 +133,7 @@ const forms = [
             <div class="error itemLevel" aria-hidden="true" role="alert" style="display: none;">
               <p></p>
             </div>
-            <input type="text" id="signInName" name="Email Address" title="Please enter a valid Email Address" autofocus="" placeholder="Email Address" aria-label="Email Address">
+            <input type="text" id="signInName" name="Email Address" title="Please enter a valid Email Address" placeholder="Email Address" aria-label="Email Address">
           </div>
             <div class="entry-item">
               <div class="password-label">
@@ -221,6 +221,69 @@ const forms = [
         </div>
     </form>`,
   },
+  {
+    id: "idp",
+    name: "IDP",
+    content: `
+        <div class="claims-provider-list-buttons social" aria-label="Sign in with your social account" role="form">
+          <div class="intro">
+            <h2 aria-level="1">Sign in with your social account</h2>
+          </div>
+          <div class="options">
+              <div> <button class="accountButton firstButton claims-provider-selection" role="link">Facebook</button> </div>
+              <div> <button class="accountButton claims-provider-selection" role="link">Auth0</button> </div>
+          </div>
+        </div>
+
+        <div class="divider">
+          <h2>OR</h2>
+        </div>
+      <form id="localAccountForm" action="JavaScript:void(0);" class="localAccount" aria-label="Sign in with your email address">
+        <div class="intro">
+          <h2 aria-level="1">
+            Sign in with your email address
+          </h2>
+        </div>
+        <div class="error pageLevel" aria-hidden="true" role="alert" style="display: none;">
+          <p></p>
+        </div>
+        <div class="entry">
+          <div class="entry-item">
+            <label for="signInName">
+              Email Address
+            </label>
+            <div class="error itemLevel" aria-hidden="true" role="alert" style="display: none;">
+              <p></p>
+            </div>
+            <input type="text" id="signInName" name="Email Address" title="Please enter a valid Email Address" placeholder="Email Address" aria-label="Email Address">
+          </div>
+            <div class="entry-item">
+              <div class="password-label">
+                <label for="password">Password</label>
+                    <a id="forgotPassword" href="/canopystaging.onmicrosoft.com/B2C_1A_signup_signin/api/CombinedSigninAndSignup/forgotPassword?csrf_token=TjhtSDBLMGlvRVRVNXpjMGhoUHNyb3RtZWxZOGlQUTgxQk91R1RMR1Z4Yysvd2FYUHBwREIwclhWUkpRS2lyeEpMYXpuQUpDV1ZWK2lYRk9qanhnQmc9PTsyMDI0LTAyLTI3VDA5OjM2OjI1LjQ3MDEyODdaO0w4c3ptN3o0clgwUHdXcmtsSm9WMWc9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiIwOGM1YTNhYS1lYjM1LTRmMGMtYmFmYi1hYTAyZDRiNTM4MmEifQ&amp;p=B2C_1A_signup_signin">Forgot your password?</a>
+                              </div>
+              <div class="error itemLevel" aria-hidden="true" style="display: none;">
+                <p role="alert"></p>
+              </div>
+              <input type="password" id="password" name="Password" placeholder="Password" aria-label="Password" autocomplete="current-password" aria-required="true">
+                          </div>
+          <div class="working"></div>
+
+
+          <div class="buttons">
+            <button id="next" type="submit" form="localAccountForm">Sign in</button>
+          </div>
+        </div>
+              <div class="divider">
+                <h2>OR</h2>
+              </div>
+              <div class="create">
+                <p>
+                  Don't have an account?<a id="createAccount" href="/canopystaging.onmicrosoft.com/B2C_1A_signup_signin/api/CombinedSigninAndSignup/unified?local=signup&amp;csrf_token=TjhtSDBLMGlvRVRVNXpjMGhoUHNyb3RtZWxZOGlQUTgxQk91R1RMR1Z4Yysvd2FYUHBwREIwclhWUkpRS2lyeEpMYXpuQUpDV1ZWK2lYRk9qanhnQmc9PTsyMDI0LTAyLTI3VDA5OjM2OjI1LjQ3MDEyODdaO0w4c3ptN3o0clgwUHdXcmtsSm9WMWc9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiIwOGM1YTNhYS1lYjM1LTRmMGMtYmFmYi1hYTAyZDRiNTM4MmEifQ&amp;p=B2C_1A_signup_signin">Sign up now</a>
+                </p>
+              </div>
+      </form>`,
+  },
 ];
 
 const initTesting = () => {
@@ -254,4 +317,14 @@ setTimeout(() => {
 //     `),
 //   ""
 // );
+
+
+
+
+
+
+
+
+
+
 
