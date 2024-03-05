@@ -10,7 +10,7 @@ const commonInit = () => {
 
   document.getElementById("UserId")?.setAttribute("disabled", "disabled");
 
-  if (location.hostname === "localhost" && document.getElementById("UserId")) {
+  if (document.getElementById("UserId") && login_hint) {
     document.getElementById("UserId").value = decodeURIComponent(login_hint);
   }
 
@@ -56,5 +56,6 @@ const commonInit = () => {
 };
 
 setTimeout(commonInit, 100);
+
 
 
