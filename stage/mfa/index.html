@@ -516,10 +516,15 @@ const commonInit = () => {
   //   el.parentNode.querySelector("label")?.appendChild(el);
   // });
 
-  document.getElementById("UserId")?.setAttribute("disabled", "disabled");
-
+  
   if (document.getElementById("UserId") && login_hint) {
+    document.getElementById("UserId").setAttribute("disabled", "disabled");
     document.getElementById("UserId").value = decodeURIComponent(login_hint);
+  }
+
+  if (document.getElementById("signInName") && login_hint) {
+    document.getElementById("signInName").setAttribute("disabled", "disabled");
+    document.getElementById("signInName").value = decodeURIComponent(login_hint);
   }
 
   document.querySelector(".form").style.visibility = "visible";
@@ -564,6 +569,9 @@ const commonInit = () => {
 };
 
 setTimeout(commonInit, 100);
+
+
+
 
 
 

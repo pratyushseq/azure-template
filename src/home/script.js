@@ -11,11 +11,23 @@ function init() {
   emailInput.setAttribute("value", email);
   emailInput.setAttribute("disabled", "disabled");
 
-  document.getElementById("UserId").parentNode.appendChild(emailLabel);
-  document.getElementById("UserId").parentNode.appendChild(emailInput);
+  const userId = document.getElementById("UserId");
+  if (userId) {
+    userId.parentNode.appendChild(emailLabel);
+    userId.parentNode.appendChild(emailInput);
+  
+    document.querySelector('label[for="UserId"]').style.display = "none";
+    userId.style.display = "none";
+  }
 
-  document.querySelector('label[for="UserId"]').style.display = "none";
-  document.getElementById("UserId").style.display = "none";
+  const signInName = document.getElementById("signInName");
+  if (signInName) {
+    signInName.parentNode.appendChild(emailLabel);
+    signInName.parentNode.appendChild(emailInput);
+
+    document.querySelector('label[for="signInName"]').style.display = "none";
+    signInName.style.display = "none";
+  }
 
   document.getElementById("password").focus();
 
@@ -50,4 +62,7 @@ function init() {
 }
 
 setTimeout(init, 100);
+
+
+
 
