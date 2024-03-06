@@ -4,11 +4,6 @@ const getUrlParams = () =>
 const commonInit = () => {
   const { login_hint, email } = getUrlParams();
 
-  // document.querySelectorAll(".helpLink.tiny")?.forEach((el) => {
-  //   el.parentNode.querySelector("label")?.appendChild(el);
-  // });
-
-  
   if (document.getElementById("UserId") && login_hint) {
     document.getElementById("UserId").setAttribute("disabled", "disabled");
     document.getElementById("UserId").value = decodeURIComponent(login_hint);
@@ -16,7 +11,8 @@ const commonInit = () => {
 
   if (document.getElementById("signInName") && login_hint) {
     document.getElementById("signInName").setAttribute("disabled", "disabled");
-    document.getElementById("signInName").value = decodeURIComponent(login_hint);
+    document.getElementById("signInName").value =
+      decodeURIComponent(login_hint);
   }
 
   document.querySelector(".form").style.visibility = "visible";
@@ -61,9 +57,4 @@ const commonInit = () => {
 };
 
 setTimeout(commonInit, 100);
-
-
-
-
-
 

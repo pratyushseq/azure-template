@@ -449,25 +449,61 @@ h1 {
 button[aria-disabled="true"] {
   cursor: not-allowed;
   opacity: 0.2;
-}.attrEntry>a.helpLink.tiny {
-  display: none;
+}.form {
+  text-align: center;
 }
 
-#emailVerificationControl .verificationInfoText>div::after,
-#emailVerificationControl .verificationSuccessText>div::after,
-#emailVerificationControl .verificationErrorText>div::after {
-  content: '';
-  margin-bottom: 24px;
-  display: block;
+#api {
+  text-align: center;
 }
 
-#cancel,
-#emailVerificationControl_but_change_claims {
+.authenticatorIconControlContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.authenticatorIconControlContent label {
+  flex: 1 0 100%;
+  font-weight: normal;
+  margin-top: 24px;
+  font-size: 14px;
+}
+
+.authenticatorIconControlContent>a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 50%;
+}
+
+.authenticatorIconControlContent>a>img {
+  margin: 0 !important;
+}
+
+.qrCodeControlContent {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+#totpQrCodeControl-img {
+  margin: auto;
+}
+
+.attrEntry {
+  margin-top: 24px;
+}
+
+#QrCodeVerifyInstruction {
+  margin: 0;
+}
+
+.AuthenticatorInfoControl .attrEntry {
+  margin-top: 0;
+}
+
+#cancel {
   display: none !important;
-}
-
-#attributeList>ul>li:not(:last-child) {
-  margin-bottom: 24px;
 }
     </style> <script defer>
     const getUrlParams = () =>
@@ -476,11 +512,6 @@ button[aria-disabled="true"] {
 const commonInit = () => {
   const { login_hint, email } = getUrlParams();
 
-  // document.querySelectorAll(".helpLink.tiny")?.forEach((el) => {
-  //   el.parentNode.querySelector("label")?.appendChild(el);
-  // });
-
-  
   if (document.getElementById("UserId") && login_hint) {
     document.getElementById("UserId").setAttribute("disabled", "disabled");
     document.getElementById("UserId").value = decodeURIComponent(login_hint);
@@ -488,12 +519,13 @@ const commonInit = () => {
 
   if (document.getElementById("signInName") && login_hint) {
     document.getElementById("signInName").setAttribute("disabled", "disabled");
-    document.getElementById("signInName").value = decodeURIComponent(login_hint);
+    document.getElementById("signInName").value =
+      decodeURIComponent(login_hint);
   }
 
   document.querySelector(".form").style.visibility = "visible";
 
-  const url = "https://hrx-backend.sequoia.com/idm/v1/contacts/verify-email";
+  const url = "https://hrx-backend-dev.sequoia-development.com/idm/v1/contacts/verify-email";
 
   if (localStorage.logo) {
     document.getElementById("logo").src = localStorage.logo;
@@ -534,68 +566,12 @@ const commonInit = () => {
 
 setTimeout(commonInit, 100);
 
-
-
-
-
-
-const isCodeInputAvailable = (callback) => {
-  const interval = setInterval(() => {
-    const isAvailable =
-      document.getElementById("emailVerificationCode").parentNode.parentNode
-        .style.display !== "none";
-    if (isAvailable) {
-      clearInterval(interval);
-      callback();
-    }
-  }, 100);
-};
-
 const init = () => {
-  const getUrlParams = () =>
-    Object.fromEntries(new URLSearchParams(location.search));
-  const { login_hint, email } = getUrlParams();
-
-  document.querySelector(".form").style.visibility = "visible";
-
-  document.getElementById("UserId")?.setAttribute("value", login_hint);
-  document.getElementById("email")?.setAttribute("value", email);
-  document.getElementById("UserId")?.setAttribute("disabled", "disabled");
-  document.getElementById("email")?.setAttribute("disabled", "disabled");
-
-  document.getElementById("UserId_label").style.display = "none";
-  document.getElementById("UserId").style.display = "none";
-
-  document.getElementById("continue").innerText = "Sending...";
-  document.getElementById("emailVerificationControl_but_send_code").click();
-  document
-    .getElementById("emailVerificationCode")
-    .setAttribute("autofocus", true);
-
-  isCodeInputAvailable(() => {
-    setTimeout(() => {
-      document.getElementById("email")?.setAttribute("disabled", "disabled");
-      document.getElementById("continue").innerText = "Continue";
-    }, 100);
-  });
-
-  document
-    .getElementById("emailVerificationControl_but_send_new_code")
-    .addEventListener("click", () => {
-      document.getElementById("continue").innerText = "Sending...";
-
-      isCodeInputAvailable(() => {
-        setTimeout(() => {
-          document
-            .getElementById("email")
-            ?.setAttribute("disabled", "disabled");
-          document.getElementById("continue").innerText = "Continue";
-        }, 100);
-      });
-    });
-};
+  document.getElementById("otpCode").setAttribute('autofocus', true);
+}
 
 setTimeout(init, 100);
+
 
 
     </script>

@@ -15,7 +15,7 @@ function init() {
   if (userId) {
     userId.parentNode.appendChild(emailLabel);
     userId.parentNode.appendChild(emailInput);
-  
+
     document.querySelector('label[for="UserId"]').style.display = "none";
     userId.style.display = "none";
   }
@@ -62,7 +62,5 @@ function init() {
 }
 
 setTimeout(init, 100);
-
-
 
 

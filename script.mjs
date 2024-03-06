@@ -1,20 +1,23 @@
 const fs = require("fs-extra");
 
+const mode = process.argv[3];
+const env = process.env.ENVIRONMENT || process.argv[4];
+
 console.clear();
 
-const loginUrl = {
-  dev: "https://login-web-dev.sequoia-development.com",
-  stage: "https://login-web-stage.sequoia-development.com",
-  production: "https://login.sequoia.com",
-};
+const isLocal = mode === "local";
 
-const baseUrlMap = {
-  dev: "https://hrx-backend-dev.sequoia-development.com",
-  stage: "https://hrx-backend-stage.sequoia-development.com",
-  production: "https://hrx-backend.sequoia.com",
-};
+await $`rm -rf ./dist`;
 
-const envs = Object.keys(baseUrlMap);
+const urlFat = (env, url) =>
+  env === "production"
+    ? `https://${url}.sequoia.com`
+    : `https://${url}-${env}.sequoia-development.com`;
+
+const getUrls = (env) => ({
+  LOGIN_URL: urlFat(env, "login-web"),
+  BASE_URL: urlFat(env, "hrx-backend"),
+});
 
 const formatHtml = ({ env, html, script, styles }) =>
   html
@@ -30,19 +33,15 @@ const formatHtml = ({ env, html, script, styles }) =>
     ${script}
     </script>`
     )
-    .replace("{{BASE_URL}}", baseUrlMap[env])
-    .replace("{{LOGIN_URL}}", loginUrl[env]);
+    .replace("{{BASE_URL}}", getUrls(env).BASE_URL)
+    .replace("{{LOGIN_URL}}", getUrls(env).LOGIN_URL);
 
 const folders = fs
   .readdirSync("./src", {})
   .filter((item) => !item.startsWith(".") && item !== "common")
   .filter((item) => fs.lstatSync(path.resolve("./src", item)).isDirectory());
 
-console.log(folders);
-
 const testingJs = fs.readFileSync(`./src/testing.js`)?.toString();
-
-console.log(folders);
 
 folders.forEach((folder) => {
   let html = "",
@@ -67,28 +66,34 @@ folders.forEach((folder) => {
 
   const folderString = folder === "home" ? "" : `/${folder}`;
 
-  envs.forEach((env) => {
-    fs.outputFileSync(
-      `./${env}${folderString}/index.html`,
-      formatHtml({
-        html,
-        script: js,
-        styles: css,
-        env,
-      })
-    );
-  });
-
   fs.outputFileSync(
-    `./testing${folderString}/index.html`,
+    `./dist/${folderString}/index.html`,
     formatHtml({
       html,
-      script: testingJs + js,
+      script: js,
       styles: css,
-      env: "dev",
+      env,
     })
   );
+
+  if (isLocal) {
+    fs.outputFileSync(
+      `./dist/testing${folderString}/index.html`,
+      formatHtml({
+        html,
+        script: testingJs + js,
+        styles: css,
+        env: "dev",
+      })
+    );
+  }
 });
 
-console.log("Updated");
+if (isLocal) {
+  await $`http-server ./dist -p 8080 -s -g -b`;
+  console.log("Updated");
+}
+
+
+
 
