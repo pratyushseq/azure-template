@@ -68,6 +68,10 @@ const forgotInit = () => {
         });
       });
 
+  if (document.getElementById('email')) {
+    document.getElementById("email")?.setAttribute("disabled", "disabled");
+  }
+
   // console.log("hello");
   // document
   //   .getElementById("forgotPassword")
@@ -76,6 +80,8 @@ const forgotInit = () => {
 
 console.log("boo");
 setTimeout(forgotInit, 100);
+
+
 
 
 
