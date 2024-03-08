@@ -15,9 +15,10 @@ function init() {
   if (userId) {
     userId.parentNode.appendChild(emailLabel);
     userId.parentNode.appendChild(emailInput);
-  
+
     document.querySelector('label[for="UserId"]').style.display = "none";
     userId.style.display = "none";
+    userId.value = login_hint;
   }
 
   const signInName = document.getElementById("signInName");
@@ -27,6 +28,7 @@ function init() {
 
     document.querySelector('label[for="signInName"]').style.display = "none";
     signInName.style.display = "none";
+    signInName.value = login_hint;
   }
 
   document.getElementById("password").focus();
@@ -62,6 +64,7 @@ function init() {
 }
 
 setTimeout(init, 100);
+
 
 
 

@@ -8,15 +8,27 @@ const commonInit = () => {
   //   el.parentNode.querySelector("label")?.appendChild(el);
   // });
 
-  
-  if (document.getElementById("UserId") && login_hint) {
-    document.getElementById("UserId").setAttribute("disabled", "disabled");
-    document.getElementById("UserId").value = decodeURIComponent(login_hint);
+  // create a label called "Email" and input with id "email" and append to UserId field
+  const emailLabel = document.createElement("label");
+  if (emailLabel) {
+    emailLabel.setAttribute("for", "email");
+    emailLabel.textContent = "Email";
+  }
+  const emailInput = document.createElement("input");
+  if (emailInput) {
+    emailInput.setAttribute("type", "email");
+    emailInput.setAttribute("id", "email");
+    emailInput.setAttribute("value", email);
+    emailInput.setAttribute("disabled", "disabled");
   }
 
-  if (document.getElementById("signInName") && login_hint) {
-    document.getElementById("signInName").setAttribute("disabled", "disabled");
-    document.getElementById("signInName").value = decodeURIComponent(login_hint);
+  const userId = document.getElementById("UserId");
+  if (userId) {
+    userId.style.display = "none";
+  }
+  const signInName = document.getElementById("signInName");
+  if (signInName) {
+    signInName.style.display = "none";
   }
 
   document.querySelector(".form").style.visibility = "visible";
@@ -61,9 +73,4 @@ const commonInit = () => {
 };
 
 setTimeout(commonInit, 100);
-
-
-
-
-
 

@@ -100,7 +100,7 @@ h2,
 
 .header {
   display: none;
-  margin: 24px 0px 36px;
+  margin: 0 0px 36px;
   font-size: 26px;
   color: #000;
 }
@@ -428,6 +428,7 @@ h1 {
 
 #logo {
   height: 35px;
+  margin-bottom: 36px;
 }
 
 #attributeList>ul {

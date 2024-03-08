@@ -112,7 +112,7 @@ h2,
 
 .header {
   display: none;
-  margin: 24px 0px 36px;
+  margin: 0 0px 36px;
   font-size: 26px;
   color: #000;
 }
@@ -440,6 +440,7 @@ h1 {
 
 #logo {
   height: 35px;
+  margin-bottom: 36px;
 }
 
 #attributeList>ul {
@@ -467,15 +468,27 @@ const commonInit = () => {
   //   el.parentNode.querySelector("label")?.appendChild(el);
   // });
 
-  
-  if (document.getElementById("UserId") && login_hint) {
-    document.getElementById("UserId").setAttribute("disabled", "disabled");
-    document.getElementById("UserId").value = decodeURIComponent(login_hint);
+  // create a label called "Email" and input with id "email" and append to UserId field
+  const emailLabel = document.createElement("label");
+  if (emailLabel) {
+    emailLabel.setAttribute("for", "email");
+    emailLabel.textContent = "Email";
+  }
+  const emailInput = document.createElement("input");
+  if (emailInput) {
+    emailInput.setAttribute("type", "email");
+    emailInput.setAttribute("id", "email");
+    emailInput.setAttribute("value", email);
+    emailInput.setAttribute("disabled", "disabled");
   }
 
-  if (document.getElementById("signInName") && login_hint) {
-    document.getElementById("signInName").setAttribute("disabled", "disabled");
-    document.getElementById("signInName").value = decodeURIComponent(login_hint);
+  const userId = document.getElementById("UserId");
+  if (userId) {
+    userId.style.display = "none";
+  }
+  const signInName = document.getElementById("signInName");
+  if (signInName) {
+    signInName.style.display = "none";
   }
 
   document.querySelector(".form").style.visibility = "visible";
@@ -521,11 +534,6 @@ const commonInit = () => {
 
 setTimeout(commonInit, 100);
 
-
-
-
-
-
 function init() {
   const { login_hint, email } = getUrlParams();
 
@@ -543,9 +551,10 @@ function init() {
   if (userId) {
     userId.parentNode.appendChild(emailLabel);
     userId.parentNode.appendChild(emailInput);
-  
+
     document.querySelector('label[for="UserId"]').style.display = "none";
     userId.style.display = "none";
+    userId.value = login_hint;
   }
 
   const signInName = document.getElementById("signInName");
@@ -555,6 +564,7 @@ function init() {
 
     document.querySelector('label[for="signInName"]').style.display = "none";
     signInName.style.display = "none";
+    signInName.value = login_hint;
   }
 
   document.getElementById("password").focus();
@@ -590,6 +600,7 @@ function init() {
 }
 
 setTimeout(init, 100);
+
 
 
 
