@@ -6,7 +6,8 @@
   "author": "Pratyush Poddar <pratyush.poddar@sequoia.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "build": "zx script.mjs build"
   },
   "dependencies": {
     "fs-extra": "^11.2.0",
@@ -21,7 +22,7 @@
       "package.json"
     ],
     "ext": "html, js, css, mjs",
-    "exec": "zx script.mjs && http-server -s -g -p 8080",
+    "exec": "zx script.mjs local",
     "verbose": false,
     "quiet": true
   }

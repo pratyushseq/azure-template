@@ -7,7 +7,13 @@ Running instructions:
 git clone git@github.com:pratyushseq/azure-template.git
 cd azure-template
 yarn install
-yarn start
+yarn start dev
+```
+
+Or 
+
+```bash
+yarn build dev
 ```
 
 This will automatically generate the index.html file required for the user flow..
